@@ -1,0 +1,148 @@
+
+        /* GLOBAL RESET & BASE */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            user-select: none; /* avoid accidental text selection on double click */
+        }
+
+        body {
+            background: linear-gradient(145deg, #1a2a3a 0%, #0f1a24 100%);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-family: 'Segoe UI', 'Poppins', 'Roboto', system-ui, -apple-system, sans-serif;
+            padding: 20px;
+        }
+
+        /* MAIN CARD */
+        .calculator-card {
+            background: rgba(22, 34, 48, 0.85);
+            backdrop-filter: blur(3px);
+            border-radius: 3rem;
+            box-shadow: 0 25px 45px rgba(0, 0, 0, 0.4), inset 0 1px 1px rgba(255, 255, 255, 0.1);
+            padding: 1.5rem;
+            width: 100%;
+            max-width: 480px;
+            transition: 0.2s;
+        }
+
+        /* DISPLAY SCREEN */
+        .display-wrap {
+            background: #0b1219;
+            border-radius: 2rem;
+            padding: 0.8rem 1.5rem;
+            margin-bottom: 1.8rem;
+            box-shadow: inset 0 5px 10px rgba(0, 0, 0, 0.5), 0 1px 2px rgba(255, 255, 255, 0.05);
+        }
+
+        #calc-display {
+            width: 100%;
+            background: transparent;
+            border: none;
+            font-size: 2.8rem;
+            font-weight: 500;
+            font-family: 'Courier New', 'Fira Code', monospace;
+            text-align: right;
+            color: #eef4ff;
+            padding: 0.4rem 0;
+            outline: none;
+            letter-spacing: 1px;
+            word-wrap: break-word;
+            overflow-x: auto;
+            white-space: pre-wrap;
+        }
+
+        /* placeholder style */
+        #calc-display::placeholder {
+            color: #5a6e7c;
+            font-size: 1.6rem;
+            font-weight: 400;
+        }
+
+        /* GRID BUTTONS */
+        .button-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 0.75rem;
+        }
+
+        /* COMMON BUTTON STYLE */
+        .btn {
+            background: #1e2f3c;
+            border: none;
+            border-radius: 2rem;
+            padding: 1rem 0.5rem;
+            font-size: 1.6rem;
+            font-weight: 600;
+            color: #eef4ff;
+            font-family: inherit;
+            cursor: pointer;
+            transition: all 0.12s linear;
+            box-shadow: 0 5px 0 #0a1118;
+            text-align: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .btn:active {
+            transform: translatey(2px);
+            box-shadow: 0 2px 0 #0a1118;
+        }
+
+        /* special buttons */
+        .btn-operator {
+            background: #e07c3c;
+            color: white;
+            box-shadow: 0 5px 0 #9b4a1a;
+        }
+
+        .btn-equals {
+            background: #2c9b77;
+            box-shadow: 0 5px 0 #1c5e48;
+            font-size: 2rem;
+        }
+
+        .btn-clear {
+            background: #9e3c3c;
+            box-shadow: 0 5px 0 #642525;
+        }
+
+        .btn-del {
+            background: #3f5e6b;
+            box-shadow: 0 5px 0 #253e48;
+        }
+
+        /* zero span optional: but we can keep simple */
+        .btn-zero {
+            grid-column: span 2;
+        }
+
+        /* small responsive */
+        @media (max-width: 450px) {
+            .button-grid {
+                gap: 0.6rem;
+            }
+            .btn {
+                font-size: 1.3rem;
+                padding: 0.8rem 0.2rem;
+            }
+            #calc-display {
+                font-size: 2rem;
+            }
+            .calculator-card {
+                padding: 1.2rem;
+            }
+        }
+
+        /* footer tiny */
+        .skill-footer {
+            text-align: center;
+            font-size: 0.7rem;
+            margin-top: 1.2rem;
+            color: #8aa4b3;
+            letter-spacing: 0.5px;
+        }
